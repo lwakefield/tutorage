@@ -1,0 +1,11 @@
+codecept
+/vendor
+/node_modules
+.env
+
+.DS_Store
+tests/_output/*
+
+public/css/
+public/fonts/
+public/js/
