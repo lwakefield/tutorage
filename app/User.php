@@ -15,7 +15,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     protected $fillable = ['name', 'email', 'password'];
     protected $hidden = ['password', 'remember_token'];
 
-    public function getRulesAttribute(){
+    public function getRulesAttribute() {
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $this->id,
@@ -23,7 +23,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         ];
     }
 
-    public function setPasswordAttribute($value){
+    public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
     }
         
