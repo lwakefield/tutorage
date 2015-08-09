@@ -28,6 +28,8 @@
 	</div>
 @endforeach
 
+@include('user.tutor.create')
+
 <div class="text-center">
 	{!! $pagination_render !!}
 </div>
