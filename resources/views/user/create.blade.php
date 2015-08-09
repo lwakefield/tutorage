@@ -1,10 +1,10 @@
-<div class="modal fade student-signup-form">
+<div class="modal fade {{$user_type}}-signup-form">
     <div class="modal-dialog">
         <form class="modal-content" action="signup" method="post">
-            <input type="hidden" name="user_type" value="student" />
+            <input type="hidden" name="user_type" value="{{$user_type}}" />
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Signup as a Student</h4>
+                <h4 class="modal-title">Signup as a {{$user_type}}</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">

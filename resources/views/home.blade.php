@@ -21,8 +21,8 @@
     </div>
 </div>
 
-@include('user.tutor.create')
-@include('user.student.create')
+@include('user.create', ['user_type' => 'tutor'])
+@include('user.create', ['user_type' => 'student'])
 @include('user.login')
 
 @endsection

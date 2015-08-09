@@ -12,7 +12,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     use Authenticatable, CanResetPassword;
 
     protected $table = 'users';
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['user', 'full_name', 'email', 'password'];
     protected $hidden = ['password', 'remember_token'];
 
     public function getRulesAttribute() {

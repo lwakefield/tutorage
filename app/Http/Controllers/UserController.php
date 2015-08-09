@@ -18,13 +18,7 @@ class UserController extends Controller
     {
         $this->repo = CrudRepositoryFactory::make('User');
     }
-
-    public function getRegister()
-    {
-        return view('register');
-    }
-
-    public function postRegister()
+    public function postSignup()
     {
         try {
             $user = $this->repo->create();
