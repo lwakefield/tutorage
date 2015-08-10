@@ -28,6 +28,12 @@ class CrudRepository
         return $this->getFreshModel()->findOrFail($id);
     }
 
+    public function findWhere($column, $operator, $value)
+    {
+        return $this->getFreshModel()->
+            where($column, $operator, $value)->firstOrFail();
+    }
+
     public function updateOrCreate($attributes)
     {
         try {

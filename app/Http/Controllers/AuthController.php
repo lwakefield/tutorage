@@ -22,6 +22,7 @@ class AuthController extends Controller
     	if (Auth::attempt(Input::only('email', 'password'))) {
     		return redirect('/');
     	} else {
+            dd('?');
             return back()->with('errors', new MessageBag([
                 'Could not log in with credentials'
             ]));

@@ -3,8 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-// php artisan make:migration:schema create_subreddits_table --schema="name:string, description:string"
-class CreateSubredditsTable extends Migration
+class Roles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +12,9 @@ class CreateSubredditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subreddits', function(Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +25,6 @@ class CreateSubredditsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('subreddits');
+        Schema::dropIfExists('roles');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVotesTable extends Migration
+class UserRoles extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,9 @@ class CreateVotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('votes', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('user_roles', function (Blueprint $table) {
             $table->integer('user_id');
-            $table->integer('direction');
-            $table->integer('voteable_id');
-            $table->string('voteable_type');
-            $table->timestamps();
+            $table->integer('role_id');
         });
     }
 
@@ -29,6 +25,6 @@ class CreateVotesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('votes');
+        Schema::dropIfExists('user_roles');
     }
 }

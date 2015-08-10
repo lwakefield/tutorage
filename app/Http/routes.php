@@ -19,6 +19,6 @@ Route::any('/logout', 'AuthController@anyLogout');
 Route::post('/login', 'AuthController@postLogin');
 
 Route::post('/signup', [
-    'uses' => 'UserController@postRegister',
+    'uses' => 'UserController@postSignup',
     'middleware' => 'guest'
 ]);

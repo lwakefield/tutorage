@@ -14,11 +14,12 @@
 
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
+                        <li><p class="navbar-text">Welcome {{ Auth::user()->name }}</p></li>
                         <li><a href="/logout">Log out</a></li>
                     @else
-                        <li><a href="/register">Register as a Student</a></li>
-                        <li><a href="/register">Register as a Tutor</a></li>
-                        <li><a href="/login">Log in</a></li>
+                        <li><a href="" data-toggle="modal" data-target=".student-signup-form">Register as a Student</a></li>
+                        <li><a href="" data-toggle="modal" data-target=".tutor-signup-form">Register as a Tutor</a></li>
+                        <li><a href="" data-toggle="modal" data-target=".login-form">Log in</a></li>
                     @endif
                 </ul>
             </div><!--/.nav-collapse -->

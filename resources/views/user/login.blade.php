@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="username" placeholder="Username">
+                    <input class="form-control" type="text" name="email" placeholder="your@email.com">
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="password" name="password" placeholder="Password">

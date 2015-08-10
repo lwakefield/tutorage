@@ -16,15 +16,24 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->repo = CrudRepositoryFactory::make('User');
+        $this->user_repo = CrudRepositoryFactory::make('User');
+        $this->user_roles_repo = CrudRepositoryFactory::make('UserRoles');
+        $this->role_repo = CrudRepositoryFactory::make('Role');
     }
     public function postSignup()
     {
         try {
-            $user = $this->repo->create();
+            $user = $this->user_repo->create();
+            $role = $this->role_repo->findWhere('name', '=', Input::get('user_type'));
+            Input::merge([
+                'user_id' => $user->id,
+                'role_id' => $role->id
+            ]);
+            $this->user_roles_repo->create();
             Auth::login($user);
             return redirect('/');
         } catch (ValidationException $e) {
+            dd($e);
             return back()->withInput()->with('errors', $e->errors);
         }
     }
