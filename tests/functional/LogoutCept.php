@@ -12,3 +12,4 @@ $I->amOnPage('');
 $I->click('Log out');
 $I->seeCurrentUrlEquals('');
 $I->see('Log in');
+$I->dontSeeAuthentication();

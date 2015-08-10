@@ -7,6 +7,7 @@
 
 @section('content')
 
+@if (Auth::guest())
 <div class="jumbotron text-center">
     <h1>Welcome to Tutorage</h1>
     <div class="row">
@@ -20,6 +21,9 @@
         <button class="col-xs-4 col-xs-offset-4 btn btn-primary" data-toggle="modal" data-target=".login-form">Login</button>
     </div>
 </div>
+@elseif (Auth::check())
+    <h1>Tutorage</h1>
+@endif
 
 @include('user.create', ['user_type' => 'tutor'])
 @include('user.create', ['user_type' => 'student'])

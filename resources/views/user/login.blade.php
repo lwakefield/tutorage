@@ -1,6 +1,6 @@
 <div class="modal fade login-form">
     <div class="modal-dialog">
-        <form class="modal-content" action="login" method="post">
+        <form class="modal-content login-form" action="login" method="post">
             {!! csrf_field() !!}
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

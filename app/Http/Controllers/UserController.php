@@ -33,7 +33,6 @@ class UserController extends Controller
             Auth::login($user);
             return redirect('/');
         } catch (ValidationException $e) {
-            dd($e);
             return back()->withInput()->with('errors', $e->errors);
         }
     }

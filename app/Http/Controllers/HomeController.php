@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Subreddit;
+use Auth;
 
 class HomeController extends Controller
 {

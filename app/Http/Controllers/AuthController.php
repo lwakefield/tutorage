@@ -14,15 +14,11 @@ use Input;
 
 class AuthController extends Controller
 {
-    public function getLogin(){
-        return view('login');
-    }
 
     public function postLogin(){
     	if (Auth::attempt(Input::only('email', 'password'))) {
     		return redirect('/');
     	} else {
-            dd('?');
             return back()->with('errors', new MessageBag([
                 'Could not log in with credentials'
             ]));

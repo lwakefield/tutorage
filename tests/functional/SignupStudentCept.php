@@ -5,7 +5,7 @@ $email = $faker->email;
 $password = $faker->password;
 
 $I = new FunctionalTester($scenario);
-$I->wantTo('Signup a user');
+$I->wantTo('Signup as a student');
 $I->amOnPage('/');
 $I->dontSeeAuthentication();
 $I->fillField('.student-signup-form input[name="name"]', $name);
@@ -18,4 +18,6 @@ $I->seeCurrentUrlEquals('');
 $I->see('Welcome '.$name);
 $I->seeRecord('users', array('email' => $email));
 $user = $I->grabRecord('users', array('email' => $email));
-$I->seeRecord('user_roles', array('user_id' => $user->id));
+$role = $I->grabRecord('roles', array('name' => 'student'));
+$I->seeRecord('user_roles', array('user_id' => $user->id, 'role_id' => $role->id));
+

@@ -26,5 +26,9 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
     }
+
+    public function roles() {
+        return $this->belongsToMany('App\Role', 'user_roles');
+    }
         
 }
