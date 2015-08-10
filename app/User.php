@@ -30,5 +30,18 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     public function roles() {
         return $this->belongsToMany('App\Role', 'user_roles');
     }
-        
+
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
+    }
+    
+    public function subjects()
+    {
+        if ($this->hasRole('tutor')) {
+            return $this->belongsToMany('App\Subject', 'tutor_subjects');
+        }
+        return null;
+    }
+    
 }

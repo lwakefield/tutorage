@@ -22,3 +22,12 @@ Route::post('/signup', [
     'uses' => 'UserController@postSignup',
     'middleware' => 'guest'
 ]);
+
+Route::post('/new-subject', [
+    'uses' => 'SubjectController@postNewSubject',
+    'middleware' => 'tutor'
+]);
+Route::post('/add-subject', [
+    'uses' => 'SubjectController@postAddSubject',
+    'middleware' => 'tutor'
+]);
