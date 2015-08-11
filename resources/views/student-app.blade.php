@@ -23,9 +23,10 @@
             </div>
         </form>
         @if (isset($tutors))
-            <ul>
+            <br>
+            <ul class="list-group">
                 @foreach ($tutors as $tutor)
-                    <li>{{ $tutor->name }}</li>
+                    <li class="list-group-item">{{ $tutor->name }}</li>
                 @endforeach
             </ul>
         @endif

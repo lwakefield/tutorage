@@ -38,9 +38,9 @@
         <br>
         <div>
             <h2>My Subjects</h2>
-            <ul>
+            <ul class="list-group">
                 @foreach ($my_subjects as $subject)
-                    <li>{{ $subject->full_name }}</li>
+                    <li class="list-group-item">{{ $subject->full_name }}</li>
                 @endforeach
             </ul>
         </div>
