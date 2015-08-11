@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Subject;
 use App\Exceptions\ValidationException;
 use App\Factories\CrudRepositoryFactory;
 use App\Http\Requests;
@@ -30,11 +31,6 @@ class SubjectController extends Controller
         }
     }
 
-    /**
-     * undocumented function
-     *
-     * @return void
-     */
     public function postAddSubject()
     {
         try {
@@ -48,5 +44,12 @@ class SubjectController extends Controller
         }
     }
     
+    public function postFindTutors()
+    {
+        $subject = $this->subject_repo->retrieve(Input::get('subject_id'));
+        $tutors = $subject->tutors;
+        return redirect('/')->with(compact('tutors'));
+        //return view('student-app')->with(compact('subjects', 'tutors'));
+    }
 
 }

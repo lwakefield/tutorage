@@ -11,9 +11,9 @@ class Subject extends BaseModel
         'name' => 'required',
     ];
 
-    protected function users()
+    protected function tutors()
     {
-        return $this->belongsToMany('App\User', 'user_subjects');
+        return $this->belongsToMany('App\User', 'tutor_subjects');
     }
 
     public function getFullNameAttribute()
