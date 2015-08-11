@@ -23,18 +23,10 @@ $factory->define(
 );
 
 $factory->define(
-    App\Role::class, function ($faker) {
-        return [
-            'name' => $faker->name,
-        ];
-    }
-);
-
-$factory->define(
     App\Subject::class, function ($faker) {
         return [
-            'code' => str_random(10),
-            'name' => $faker->name
+            'code' => $faker->regexify('[A-Z]{4}[0-9]{4}'),
+            'name' => $faker->sentence($nbWords = 4)
         ];
     }
 );
