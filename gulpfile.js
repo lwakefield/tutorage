@@ -18,6 +18,8 @@ elixir(function(mix) {
     mix.copy('vendor/bower_components/bootstrap/fonts/', 'public/fonts');
     mix.copy([
     	'vendor/bower_components/bootstrap/dist/js/bootstrap.min.js',
-    	'vendor/bower_components/jquery/dist/jquery.min.js'
+    	'vendor/bower_components/jquery/dist/jquery.min.js',
+    	'vendor/bower_components/vue/dist/vue.min.js',
+        'resources/assets/js',
     	], 'public/js/');
 });

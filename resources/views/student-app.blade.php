@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row student-app">
     <div class="col-xs-6">
         <form class="find-tutors-form form-inline" action="find-tutors" method="post">
             {!! csrf_field() !!}
@@ -26,10 +26,13 @@
             <br>
             <ul class="list-group">
                 @foreach ($tutors as $tutor)
-                    <li class="list-group-item">{{ $tutor->name }}</li>
+                    <li class="list-group-item" c-on="click: sendMessage">{{ $tutor->name }}</li>
                 @endforeach
             </ul>
         @endif
+    </div>
+    <div class="col-xs-6">
+        <h2>Messages</h2>
     </div>
 </div>
 

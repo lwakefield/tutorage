@@ -43,5 +43,14 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         }
         return null;
     }
+
+    public function sent()
+    {
+        return $this->hasMany('App\Message', 'from_id');
+    }
     
+    public function received()
+    {
+        return $this->hasMany('App\Message', 'to_id');
+    }
 }
