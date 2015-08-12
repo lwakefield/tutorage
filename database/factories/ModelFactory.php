@@ -34,9 +34,9 @@ $factory->define(
 $factory->define(
     App\Message::class, function ($faker) {
         return [
-            'from_user' => -1,
-            'to_user' => -1,
-            'message' => ''
+            'from_id' => App\User::orderByRaw('RAND()')->first()->id,
+            'to_id' => App\User::orderByRaw('RAND()')->first()->id,
+            'content' => $faker->sentence
         ];
     }
 );
