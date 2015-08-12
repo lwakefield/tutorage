@@ -11,13 +11,14 @@ class Message extends BaseModel
         'from_id' => 'required|exists:users,id',
         'to_id' => 'required|exists:users,id',
     ];
+    protected $with = ['from', 'to'];
 
-    protected function from()
+    public function from()
     {
         return $this->hasOne('App\User', 'id', 'from_id');
     }
 
-    protected function to()
+    public function to()
     {
         return $this->hasOne('App\User', 'id', 'to_id');
     }
