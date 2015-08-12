@@ -35,3 +35,7 @@ Route::post('/find-tutors', [
     'uses' => 'SubjectController@postFindTutors',
     'middleware' => 'student'
 ]);
+
+Route::post('/send-message', [
+    'uses' => 'MessageController@postSendMessage',
+]);

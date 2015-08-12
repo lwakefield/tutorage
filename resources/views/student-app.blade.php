@@ -26,7 +26,10 @@
             <br>
             <ul class="list-group">
                 @foreach ($tutors as $tutor)
-                    <li class="list-group-item" c-on="click: sendMessage">{{ $tutor->name }}</li>
+                    <li class="list-group-item"
+                        data-toggle="modal"
+                        data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}</li>
+                    @include('message.send', ['to_user' => $tutor->id])
                 @endforeach
             </ul>
         @endif
