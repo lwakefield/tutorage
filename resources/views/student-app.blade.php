@@ -46,8 +46,17 @@
             </div>
             <div class="col-xs-8">
                 <div class="tab-content">
-                    @foreach ($conversations as $id => $val)
-                        <div class="tab-pane {{ $id == 0 ? 'active' : ''}}" id="conversation-{{ $id }}">{{ $val->with_user->name }}</div>
+                    @foreach ($conversations as $id => $conversation)
+                        <div class="tab-pane {{ $id == 0 ? 'active' : ''}}"
+                            id="conversation-{{ $id }}">
+                            <ul class="list-group">
+                                @foreach ($conversation->messages as $message)
+                                    <li class="list-group-item">
+                                        <strong>{{ $message->from_id }}:</strong>{{ $message->content }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endforeach
                 </div>
             </div>
