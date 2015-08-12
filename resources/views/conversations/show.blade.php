@@ -15,6 +15,14 @@
                 <div class="tab-pane {{ $id == 0 ? 'active' : ''}}"
                     id="conversation-{{ $id }}">
                     @include('conversations.partials.conversation', ['conversation' => $conversation])
+                    <form class="send-message-form" action="send-message" method="post">
+                        {!! csrf_field() !!}
+                        <input type="hidden" name="to_id" value="{{ $conversation->with_user->id }}">
+                        <div class="form-group">
+                            <textarea class="form-control" name="content" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
                 </div>
             @endforeach
         </div>
