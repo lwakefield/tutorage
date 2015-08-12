@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
 
         $student_role = Role::create(['name' => 'student']);
         $tutor_role = Role::create(['name' => 'tutor']);
-        factory('App\User')->times(100)->create();
-        factory('App\Subject')->times(100)->create();
+        factory('App\User')->times(20)->create();
+        factory('App\Subject')->times(20)->create();
         foreach(User::all() as $user) {
             $role = Role::orderByRaw('RAND()')->first();
             $user->roles()->save($role);
@@ -41,12 +41,12 @@ class DatabaseSeeder extends Seeder
         $tutor->roles()->save($tutor_role);
 
         $users = $tutor_role->users;
-        foreach (range(0,1000) as $i) {
+        foreach (range(0,100) as $i) {
             $user = $users[rand(0, sizeof($users)-1)];
             $subject = Subject::orderByRaw('RAND()')->first();
             $user->subjects()->save($subject);
         }
-        factory('App\Message')->times(10000)->create();
+        factory('App\Message')->times(4000)->create();
 
         Model::reguard();
     }

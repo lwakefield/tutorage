@@ -36,7 +36,8 @@ $factory->define(
         return [
             'from_id' => App\User::orderByRaw('RAND()')->first()->id,
             'to_id' => App\User::orderByRaw('RAND()')->first()->id,
-            'content' => $faker->sentence
+            'content' => $faker->sentence,
+            'created_at' => $faker->dateTime
         ];
     }
 );

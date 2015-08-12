@@ -17,6 +17,7 @@ class ProfileService
             foreach ($received->get($key, collect())->all() as $message) {
                 $item = $item->push($message);
             }
+            $item = $item->sortBy('created_at');
             return new Conversation($key, $item);
         });
         return $conversations->values();

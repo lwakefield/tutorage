@@ -5,7 +5,6 @@ namespace App;
 class Message extends BaseModel
 {
     protected $fillable = ['content', 'from_id', 'to_id'];
-    public $timestamps = false;
 
     protected $rules = [
         'content' => 'required',
