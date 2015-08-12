@@ -14,7 +14,6 @@ class HomeController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $subjects = Subject::all();
-
             $conversations = ProfileService::loadMyConversations();
 
             if ($user->hasRole('tutor')) {
@@ -22,7 +21,6 @@ class HomeController extends Controller
                 return view('tutor-app')->with(compact('subjects', 'my_subjects'));
             }
             elseif ($user->hasRole('student')) {
-                //dd($conversations);
                 $tutors = session('tutors');
                 return view('student-app')->with(compact('subjects', 'tutors', 'conversations'));
             }
