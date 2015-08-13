@@ -3,6 +3,7 @@
 use App\User;
 use App\Role;
 use App\UserRoles;
+use App\TutorSubjects;
 use App\Subject;
 use App\Message;
 
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Role::truncate();
         UserRoles::truncate();
+        TutorSubjects::truncate();
         Subject::truncate();
         Message::truncate();
 
