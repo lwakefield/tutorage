@@ -20,6 +20,12 @@ class UserController extends Controller
         $this->user_roles_repo = CrudRepositoryFactory::make('UserRoles');
         $this->role_repo = CrudRepositoryFactory::make('Role');
     }
+
+    public function getSignup()
+    {
+        return view('user.create');
+    }
+    
     public function postSignup()
     {
         try {

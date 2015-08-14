@@ -8,13 +8,19 @@ $I = new FunctionalTester($scenario);
 $I->wantTo('Signup as a tutor');
 $I->amOnPage('/');
 $I->dontSeeAuthentication();
-$I->fillField('.tutor-signup-form input[name="name"]', $name);
-$I->fillField('.tutor-signup-form input[name="email"]', $email);
-$I->fillField('.tutor-signup-form input[name="password"]', $password);
-$I->fillField('.tutor-signup-form input[name="verify_password"]', $password);
-$I->click('.tutor-signup-form button[type="submit"]');
 
+$I->click('Signup');
+$I->seeCurrentUrlEquals('/signup');
+
+$I->selectOption('select[name="user_type"]', 'tutor');
+$I->fillField('input[name="name"]', $name);
+$I->fillField('input[name="email"]', $email);
+$I->fillField('input[name="password"]', $password);
+$I->fillField('input[name="verify_password"]', $password);
+
+$I->click('button[type="submit"]');
 $I->seeCurrentUrlEquals('');
+
 $I->see('Welcome '.$name);
 $I->seeRecord('users', array('email' => $email));
 $user = $I->grabRecord('users', array('email' => $email));

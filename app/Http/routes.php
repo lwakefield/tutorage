@@ -18,6 +18,10 @@ Route::get('/', 'HomeController@index');
 Route::any('/logout', 'AuthController@anyLogout');
 Route::post('/login', 'AuthController@postLogin');
 
+Route::get('/signup', [
+    'uses' => 'UserController@getSignup',
+    'middleware' => 'guest'
+]);
 Route::post('/signup', [
     'uses' => 'UserController@postSignup',
     'middleware' => 'guest'
