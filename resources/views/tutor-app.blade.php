@@ -12,13 +12,13 @@
         <form class="new-subject-form form-inline" action="new-subject" method="post">
             {!! csrf_field() !!}
             <div class="form-group">
-                <input class="form-control" type="text" name="code" placeholder="MATH1002">
+                <input class="form-control" type="text" name="code" placeholder="Unit Code">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="Linear Algebra">
+                <input class="form-control" type="text" name="name" placeholder="Unit Name">
             </div>
             <div class="form-group">
-                <button class="form-control btn btn-primary" type="submit">New Subject</button>
+                <button class="form-control btn btn-primary" type="submit">Add New Subject</button>
             </div>
         </form>
         <br>
@@ -32,7 +32,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <button class="form-control btn btn-primary" type="submit">Add Subject</button>
+                <button class="form-control btn btn-primary" type="submit">Add to My Subjects</button>
             </div>
         </form>
         <br>
@@ -44,6 +44,9 @@
                 @endforeach
             </ul>
         </div>
+    </div>
+    <div class="col-xs-6">
+        @include('conversations.show-tutor')
     </div>
 </div>
 
