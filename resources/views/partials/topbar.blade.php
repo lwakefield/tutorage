@@ -17,8 +17,7 @@
                         <li><p class="navbar-text">Welcome {{ Auth::user()->name }}</p></li>
                         <li><a href="/logout">Log out</a></li>
                     @else
-                        <li><a href="signup">Register as a Student</a></li>
-                        <li><a href="signup">Register as a Tutor</a></li>
+                        <li><a href="signup">Register now</a></li>
                         <li><a href="" data-toggle="modal" data-target=".login-form">Log in</a></li>
                     @endif
                 </ul>
