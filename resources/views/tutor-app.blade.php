@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="col-xs-6">
-        @include('conversations.show-tutor')
+        @include('conversations.show')
     </div>
 </div>
 

@@ -18,7 +18,7 @@ class HomeController extends Controller
 
             if ($user->hasRole('tutor')) {
                 $my_subjects = Auth::user()->subjects;
-                return view('tutor-app')->with(compact('subjects', 'my_subjects'));
+                return view('tutor-app')->with(compact('subjects', 'my_subjects', 'conversations'));
             }
             elseif ($user->hasRole('student')) {
                 $tutors = session('tutors');
