@@ -37,7 +37,12 @@
                         @foreach ($tutors as $tutor)
                             <li class="list-group-item"
                                 data-toggle="modal"
-                                data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}</li>
+                                data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}
+                                <span style="float:right;">
+                                    <a href="#"><button style="background:white;"><img style="width:15px;height:auto;" src="http://www.portlandkidscalendar.com/wp-content/uploads/2011/06/thumbs_up_symbol_small.jpg"></button></a>
+                                    <a href="#"><button style="background:white;"><img style="width:15px;height:auto;"src="http://www.portlandkidscalendar.com/wp-content/uploads/2011/06/thumbs_down_symbol_small.jpg"></button></a>
+                                </span>
+                            </li>
                             @include('message.send', ['to_user' => $tutor->id])
                         @endforeach
                     </ul>
