@@ -43,3 +43,9 @@ Route::post('/find-tutors', [
 Route::post('/send-message', [
     'uses' => 'MessageController@postSendMessage',
 ]);
+
+Route::get('/delete-subject', [
+    'uses' => 'SubjectController@postDeleteSubject',
+    'middleware' => 'tutor'
+    ]
+);

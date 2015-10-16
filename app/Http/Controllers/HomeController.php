@@ -14,13 +14,14 @@ class HomeController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $subjects = Subject::all();
-            $conversations = ProfileService::loadMyConversations();
-
+            
             if ($user->hasRole('tutor')) {
+                $conversations = ProfileService::loadMyConversationsTutor();
                 $my_subjects = Auth::user()->subjects;
                 return view('tutor-app')->with(compact('subjects', 'my_subjects', 'conversations'));
             }
             elseif ($user->hasRole('student')) {
+                $conversations = ProfileService::loadMyConversationsStudent();
                 $tutors = session('tutors');
                 return view('student-app')->with(compact('subjects', 'tutors', 'conversations'));
             }

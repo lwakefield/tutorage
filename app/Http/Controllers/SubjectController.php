@@ -52,4 +52,10 @@ class SubjectController extends Controller
         //return view('student-app')->with(compact('subjects', 'tutors'));
     }
 
+    public function postDeleteSubject()
+    {
+        $subject = $this->subject_repo->delete(Input::get('subject_id'));
+        return back();
+    }
+
 }

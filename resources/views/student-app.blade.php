@@ -14,6 +14,9 @@
                 <h3 class="text-center">Find Tutors</h3>
             </div>
             <div class="panel-body">
+                <div>
+                        <p style="padding-bottom:10px;"><b>Choose a subject to find available tutors. Click their name to send a message.</b></p>
+                    </div>
                 <form class="find-tutors-form form-inline" action="find-tutors" method="post">
                     {!! csrf_field() !!}
                     <div class="form-group">
@@ -26,6 +29,7 @@
                     <div class="form-group">
                         <button class="form-control btn btn-primary" type="submit">Find Tutors</button>
                     </div>
+
                 </form>
                 @if (isset($tutors))
                     <br>

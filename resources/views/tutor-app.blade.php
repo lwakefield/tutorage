@@ -40,13 +40,13 @@
             <h2>My Subjects</h2>
             <ul class="list-group">
                 @foreach ($my_subjects as $subject)
-                    <li class="list-group-item">{{ $subject->full_name }}</li>
+                    <li class="list-group-item">{{ $subject->full_name }}<a  href="/delete-subject?subject_id={{$subject->id}}"><button class="btn-primary" style="float: right; border-radius:4px;">Delete</button></a></li>
                 @endforeach
             </ul>
         </div>
     </div>
     <div class="col-xs-6">
-        @include('conversations.show')
+        @include('conversations.show-tutor')
     </div>
 </div>
 
