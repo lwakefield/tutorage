@@ -4,6 +4,9 @@
 
 	<form class="col-md-offset-4 col-md-4 panel panel-default" action="/login" method="post">
 		<h1 class="text-center">Login</h1>
+        @foreach ($errors->all() as $e)
+            <div class="alert alert-danger" role="alert">{{ $e }}</div>
+        @endforeach
 		{!! csrf_field() !!}
 		<div class="form-group">
 			<input class="form-control" type="text" name="email" placeholder="Email Address">
