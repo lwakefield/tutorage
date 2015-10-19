@@ -45,6 +45,9 @@
             </ul>
         </div>
     </div>
+    <div class="col-xs-6">
+        @include('conversations.show')
+    </div>
 </div>
 
 @endsection
