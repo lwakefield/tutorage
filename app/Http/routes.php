@@ -16,6 +16,7 @@ use App\Factories\CrudRepositoryFactory;
 Route::get('/', 'HomeController@index');
 
 Route::any('/logout', 'AuthController@anyLogout');
+Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin');
 
 Route::get('/signup', [
@@ -39,7 +40,7 @@ Route::post('/find-tutors', [
     'uses' => 'SubjectController@postFindTutors',
     'middleware' => 'student'
 ]);
-
 Route::post('/send-message', [
     'uses' => 'MessageController@postSendMessage',
+    'middleware' => 'auth'
 ]);

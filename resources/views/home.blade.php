@@ -15,10 +15,8 @@
     <br>
     <p>or</p>
     <div class="row">
-        <button class="col-xs-4 col-xs-offset-4 btn btn-primary" data-toggle="modal" data-target=".login-form">Login</button>
+        <a class="col-xs-4 col-xs-offset-4 btn btn-primary" href="login">Log in</a>
     </div>
 </div>
-
-@include('user.login')
 
 @endsection
