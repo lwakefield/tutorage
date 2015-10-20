@@ -44,3 +44,16 @@ Route::post('/send-message', [
     'uses' => 'MessageController@postSendMessage',
     'middleware' => 'auth'
 ]);
+
+Route::get('/up-rating', [
+    'uses' => 'UserController@upRating',
+    'middleware' => 'student'
+    ]
+);
+
+Route::get('/down-rating', [
+    'uses' => 'UserController@downRating',
+    'middleware' => 'student'
+    ]
+);
+

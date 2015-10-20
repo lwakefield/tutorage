@@ -33,7 +33,13 @@
                         @foreach ($tutors as $tutor)
                             <li class="list-group-item"
                                 data-toggle="modal"
-                                data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}</li>
+                                data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}
+                                <span style="position:absolute; right:10px;top:3px;">
+                                    <span class="label label-primary">Rating: {{ $tutor->rating }}</span>
+                                    <a href="/up-rating?tutor_id={{$tutor->id}}"><button class="btn btn-success"><img style="width:20px;height:auto;" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png"></button></a>
+                                    <a href="/down-rating?tutor_id={{$tutor->id}}"><button class="btn btn-danger"><img style="width:20px;height:auto;"src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-128.png"></button></a>
+                                </span>
+                            </li>
                             @include('message.send', ['to_user' => $tutor->id])
                         @endforeach
                     </ul>
