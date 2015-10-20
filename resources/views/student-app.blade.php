@@ -38,11 +38,13 @@
                             <li class="list-group-item"
                                 data-toggle="modal"
                                 data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}
-                                <span style="float:right;">
-                                    <a href="#"><button style="background:white;"><img style="width:15px;height:auto;" src="http://www.portlandkidscalendar.com/wp-content/uploads/2011/06/thumbs_up_symbol_small.jpg"></button></a>
-                                    <a href="#"><button style="background:white;"><img style="width:15px;height:auto;"src="http://www.portlandkidscalendar.com/wp-content/uploads/2011/06/thumbs_down_symbol_small.jpg"></button></a>
+                                <span style="position:absolute; right:10px;top:3px;">
+                                    <span class="label label-primary">Rating: {{ $tutor->rating }}</span>
+                                    <a href="/up-rating?tutor_id={{$tutor->id}}"><button class="btn btn-success"><img style="width:20px;height:auto;" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png"></button></a>
+                                    <a href="/down-rating?tutor_id={{$tutor->id}}"><button class="btn btn-danger"><img style="width:20px;height:auto;"src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-128.png"></button></a>
                                 </span>
                             </li>
+
                             @include('message.send', ['to_user' => $tutor->id])
                         @endforeach
                     </ul>
