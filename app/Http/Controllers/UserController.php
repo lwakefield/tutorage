@@ -57,8 +57,8 @@ class UserController extends Controller
             
             //post rating back to db
             $tutor->rating = $newRating;
+            $tutor->save();
 
-            dd($tutor->rating);
             return back();
         } catch (ValidationException $e) {
             return back()->withInput()->with('errors', $e->errors);
@@ -80,8 +80,8 @@ class UserController extends Controller
 
             //post rating back to db
             $tutor->rating = $newRating;
+            $tutor->save();
 
-            dd($tutor->rating);
             return back();
         } catch (ValidationException $e) {
             return back()->withInput()->with('errors', $e->errors);
