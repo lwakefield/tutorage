@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Services;
-
 use App\Conversation;
 use Auth;
-
 class ProfileService
 {
-
     public static function loadMyConversations()
     {
         $user = Auth::user();
@@ -21,8 +17,14 @@ class ProfileService
             $item = $item->sortBy('created_at');
             return new Conversation($with_user, $item);
         });
+        $sent_keys = $sent->keys()->toArray();
+        $received_keys = $received->keys()->toArray();
+        $diff = array_diff($received_keys, $sent_keys);
+        foreach ($diff as $i) {
+            $item = $received->get($i);
+            $conversations->push(new Conversation($item->first()->from, $item));
+        }
         return $conversations->values();
     }
     
-
 }

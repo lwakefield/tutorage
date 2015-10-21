@@ -9,6 +9,7 @@
 
 <div class="row">
     <div class="col-xs-6">
+        <h2>Add a Subject</h2>
         <form class="new-subject-form form-inline" action="new-subject" method="post">
             {!! csrf_field() !!}
             <div class="form-group">
@@ -18,7 +19,7 @@
                 <input class="form-control" type="text" name="name" placeholder="Linear Algebra">
             </div>
             <div class="form-group">
-                <button class="form-control btn btn-primary" type="submit">New Subject</button>
+                <button class="form-control btn btn-primary" type="submit">Create New Subject</button>
             </div>
         </form>
         <br>
@@ -43,6 +44,9 @@
                     <li class="list-group-item">{{ $subject->full_name }}</li>
                 @endforeach
             </ul>
+        </div>
+        <div>
+            <h2><span class="label label-primary">My Rating: {{ Auth::user()->rating }}</span></h2>
         </div>
     </div>
     <div class="col-xs-6">
