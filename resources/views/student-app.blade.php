@@ -31,9 +31,7 @@
                     <br>
                     <ul class="list-group">
                         @foreach ($tutors as $tutor)
-                            <li class="list-group-item"
-                                data-toggle="modal"
-                                data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}
+                            <li class="list-group-item">{{ $tutor->name }}
                                 <span class="pull-right">
                                     <form action="/vote-on-user" class="form-inline" method="post">
                                         {!! csrf_field() !!}
@@ -44,6 +42,11 @@
                                         <div class="btn-group form-group">
                                             <button type="submit" class="btn btn-default btn-xs" name="direction" value="1">+1</button>
                                             <button type="submit" class="btn btn-default btn-xs" name="direction" value="-1">-1</button>
+                                        </div>
+                                        <div class="form-group">
+                                            <a class="btn btn-info btn-xs"
+                                                data-toggle="modal" 
+                                                data-target=".send-message-to-{{ $tutor->id }}">Message</a>
                                         </div>
                                     </form>
                                 </span>
