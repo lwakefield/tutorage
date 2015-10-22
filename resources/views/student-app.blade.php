@@ -36,7 +36,6 @@
                             <option value="80">$80</option>
                             <option value="90">$90</option>
                             <option value="100">$100</option>
-
                         </select>
                     </div>
                     <br>
@@ -52,13 +51,12 @@
                             <li class="list-group-item">
                                 {{ $tutor->name }} (${{ $tutor->price }} p/h)
                                 <span style="position:absolute; right:10px;top:3px;">
-                                    <span class="label label-primary">Rating: {{ $tutor->rating }}</span>
-                                    <a href="/up-rating?tutor_id={{$tutor->id}}"><button class="btn btn-success"><img style="width:20px;height:auto;" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png"></button></a>
-                                    <a href="/down-rating?tutor_id={{$tutor->id}}"><button class="btn btn-danger"><img style="width:20px;height:auto;"src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-128.png"></button></a>
-                                    <button class="btn btn-info" data-toggle="modal" data-target=".send-message-to-{{ $tutor->id }}">Send Message</button>
+                                    <button class="btn btn-default" data-toggle="modal" data-target=".view-profile-{{ $tutor->id }}"><img style="width:20px;height:auto;"src="https://www.mastermindglobal.org/images/user-icon.png"></button>
+                                    <button class="btn btn-info" data-toggle="modal" data-target=".send-message-to-{{ $tutor->id }}"><img style="width:20px;height:auto;"src="http://static.iconsplace.com/icons/preview/black/message-256.png"></button>
                                 </span>
                             </li>
                             @include('message.send', ['to_user' => $tutor->id])
+                            @include('profile.view-profile', ['id' => $tutor->id, 'name' => $tutor->name, 'rating' => $tutor->rating, 'description' => $tutor->description, 'price' => $tutor->price])
                         @endforeach
                     </ul>
                 @endif
