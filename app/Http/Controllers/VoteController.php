@@ -18,18 +18,6 @@ class VoteController extends Controller
         $this->voteRepo = CrudRepositoryFactory::make('Vote');
     }
 
-    public function voteOnPost($id)
-    {
-        $post = $this->postRepo->retrieve($id);
-        return $this->voteOnModel($post);
-    }
-
-    public function voteOnComment($id)
-    {
-        $comment = $this->commentRepo->retrieve($id);
-        return $this->voteOnModel($comment);
-    }
-
     protected function voteOnTutor()
     {
         $tutor = $this->userRepo->retrieve(Input::get('tutor_id'));
@@ -37,13 +25,9 @@ class VoteController extends Controller
             throw new AccessException('Cannot vote on non-tutor user');
         }
         Input::merge(['student_id' => Auth::id()]);
-        try {
-            $vote = $this->voteRepo->updateOrCreate([
-                'student_id' => Auth::id()
-            ]);
-        } catch (\Exception $e) {
-            dd($e);
-        }
+        $vote = $this->voteRepo->updateOrCreate([
+            'student_id' => Auth::id()
+        ]);
         $tutor->votes()->save($vote);
         $up_votes = $tutor->votes()->where('direction', '>', '0')->count();
         $down_votes = $tutor->votes()->where('direction', '<', '0')->count();
