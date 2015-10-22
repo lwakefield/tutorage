@@ -53,7 +53,6 @@ class UserController extends Controller
         try {
             $user =  Auth::user();
             $user->save();
-            dd($user);
             return back();
         } catch (ValidationException $e) {
             return back()->withInput()->with('errors', $e->errors);
