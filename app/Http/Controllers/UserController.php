@@ -43,39 +43,21 @@ class UserController extends Controller
         }
     }
 
-    public function upRating()
+    public function getProfile()
+    {
+        return view('user.profile');
+    }
+
+    public function postProfile()
     {
         try {
-            $tutor = $this->user_repo->retrieve(Input::get('tutor_id'));
-            //get current rating
-            $currentRating = $tutor->rating;
-            //increment current rating
-            $newRating = $currentRating + 1;
-            //post rating back to db
-            $tutor->rating = $newRating;
-            $tutor->save();
+            $user =  Auth::user();
+            $user->save();
+            dd($user);
             return back();
         } catch (ValidationException $e) {
             return back()->withInput()->with('errors', $e->errors);
         }
-
     }
 
-    public function downRating()
-    {
-        try {
-            $tutor = $this->user_repo->retrieve(Input::get('tutor_id'));
-            //get current rating
-            $currentRating = (int)$tutor->rating;
-            //decrement current rating
-            $newRating = $currentRating - 1;
-            //post rating back to db
-            $tutor->rating = $newRating;
-            $tutor->save();
-            return back();
-        } catch (ValidationException $e) {
-            return back()->withInput()->with('errors', $e->errors);
-        }
-
-    }
 }
