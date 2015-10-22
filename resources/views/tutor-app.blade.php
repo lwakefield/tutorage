@@ -46,7 +46,13 @@
             </ul>
         </div>
         <div>
-            <h2><span class="label label-primary">My Rating: {{ Auth::user()->rating }}</span></h2>
+            <h2>My Profile</h2>
+            <ul class="list-group">                
+                <li class="list-group-item">Name: <b>{{ Auth::user()->name }}</b></li>
+                <li class="list-group-item">Email Address: <b>{{ Auth::user()->email }}</b></li>
+                <li class="list-group-item">Price: <b>${{ Auth::user()->price }} p/h</b></li>
+                <li class="list-group-item">Current Rating: <b>{{ Auth::user()->rating }}</b></li>
+            </ul>
         </div>
     </div>
     <div class="col-xs-6">
