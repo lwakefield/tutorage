@@ -45,15 +45,7 @@ Route::post('/send-message', [
     'middleware' => 'auth'
 ]);
 
-Route::get('/up-rating', [
-    'uses' => 'UserController@upRating',
+Route::post('/vote-on-user/', [
+    'uses' => 'VoteController@voteOnTutor',
     'middleware' => 'student'
-    ]
-);
-
-Route::get('/down-rating', [
-    'uses' => 'UserController@downRating',
-    'middleware' => 'student'
-    ]
-);
-
+]);

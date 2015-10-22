@@ -34,10 +34,18 @@
                             <li class="list-group-item"
                                 data-toggle="modal"
                                 data-target=".send-message-to-{{ $tutor->id }}">{{ $tutor->name }}
-                                <span style="position:absolute; right:10px;top:3px;">
-                                    <span class="label label-primary">Rating: {{ $tutor->rating }}</span>
-                                    <a href="/up-rating?tutor_id={{$tutor->id}}"><button class="btn btn-success"><img style="width:20px;height:auto;" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png"></button></a>
-                                    <a href="/down-rating?tutor_id={{$tutor->id}}"><button class="btn btn-danger"><img style="width:20px;height:auto;"src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-128.png"></button></a>
+                                <span class="pull-right">
+                                    <form action="/vote-on-user" class="form-inline" method="post">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="tutor_id" value="{{$tutor->id}}">
+                                        <div class="form-group">
+                                            <span class="label label-primary">Rating: {{ $tutor->score }}</span>
+                                        </div>
+                                        <div class="btn-group form-group">
+                                            <button type="submit" class="btn btn-default btn-xs" name="direction" value="1">+1</button>
+                                            <button type="submit" class="btn btn-default btn-xs" name="direction" value="-1">-1</button>
+                                        </div>
+                                    </form>
                                 </span>
                             </li>
                             @include('message.send', ['to_user' => $tutor->id])
