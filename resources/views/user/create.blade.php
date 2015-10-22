@@ -25,9 +25,6 @@
                 <input class="form-control" type="text" name="name" placeholder="Full Name">
             </div>
             <div class="form-group">
-                <input class="form-control" type="number" min="0" step="any" name="price" placeholder="Price Per Hour">
-            </div>
-            <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
             <div class="form-group">

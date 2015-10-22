@@ -12,13 +12,12 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     use Authenticatable, CanResetPassword;
 
     protected $table = 'users';
-    protected $fillable = ['email', 'name', 'price', 'password'];
+    protected $fillable = ['email', 'name', 'password'];
     protected $hidden = ['password', 'remember_token'];
 
     public function getRulesAttribute() {
         return [
             'name' => 'required',
-            'price' => 'required',
             'email' => 'required|email|unique:users,email,' . $this->id,
             'password' => 'required|min:8'
         ];
