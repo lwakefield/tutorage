@@ -57,3 +57,20 @@ Route::get('/down-rating', [
     ]
 );
 
+Route::get('/change-name', [
+    'uses' => 'UserController@changeName',
+    'middleware' => 'tutor'
+    ]
+);
+
+Route::get('/change-price', [
+    'uses' => 'UserController@changePrice',
+    'middleware' => 'tutor'
+    ]
+);
+
+Route::get('/change-description', [
+    'uses' => 'UserController@changeDescription',
+    'middleware' => 'tutor'
+    ]
+);

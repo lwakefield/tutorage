@@ -39,6 +39,7 @@
         <br>
         <div>
             <h2>My Subjects</h2>
+            <h6></h6>
             <ul class="list-group">
                 @foreach ($my_subjects as $subject)
                     <li class="list-group-item">{{ $subject->full_name }}</li>
@@ -48,11 +49,15 @@
         <div>
             <h2>My Profile</h2>
             <ul class="list-group">                
-                <li class="list-group-item">Name: <b>{{ Auth::user()->name }}</b></li>
+                <li class="list-group-item" data-toggle="modal" data-target=".change-name">Name: <b>{{ Auth::user()->name }}</b></li>
                 <li class="list-group-item">Email Address: <b>{{ Auth::user()->email }}</b></li>
-                <li class="list-group-item">Price: <b>${{ Auth::user()->price }} p/h</b></li>
+                <li class="list-group-item" data-toggle="modal" data-target=".change-price">Price: <b>${{ Auth::user()->price }} p/h</b></li>
                 <li class="list-group-item">Current Rating: <b>{{ Auth::user()->rating }}</b></li>
+                <li class="list-group-item" data-toggle="modal" data-target=".change-description">Description: <b>{{ Auth::user()->description }}</b></li>
             </ul>
+            @include('profile.change-name')
+            @include('profile.change-price')
+            @include('profile.change-description')
         </div>
     </div>
     <div class="col-xs-6">

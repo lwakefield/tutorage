@@ -47,7 +47,6 @@ class UserController extends Controller
     {
         try {
             $tutor = $this->user_repo->retrieve(Input::get('tutor_id'));
-            dd($tutor);
             //get current rating
             $currentRating = $tutor->rating;
             //increment current rating
@@ -77,6 +76,43 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             return back()->withInput()->with('errors', $e->errors);
         }
+    }
 
+    public function changeName()
+    {
+        try {
+            $tutor = $this->user_repo->retrieve(Auth::user()->id);
+            $tutor->name = Input::get('new_name');
+            $tutor->save();
+            return back();
+        } catch (ValidationException $e) {
+            return back()->withInput()->with('errors', $e->errors);
+        }
+    }
+
+        public function changePrice()
+    {
+        try {
+            $tutor = $this->user_repo->retrieve(Auth::user()->id);
+            $newPrice = floatval(Input::get('new_price'));
+            $tutor->price = $newPrice;
+            $tutor->save();
+            return back();
+        } catch (ValidationException $e) {
+            return back()->withInput()->with('errors', $e->errors);
+        }
+    }
+
+        public function changeDescription()
+    {
+        try {
+            $tutor = $this->user_repo->retrieve(Auth::user()->id);
+            $tutor->description = Input::get('new_description');
+            $tutor->save();
+            return back();
+        } catch (ValidationException $e) {
+            return back()->withInput()->with('errors', $e->errors);
+        }
     }
 }
+
