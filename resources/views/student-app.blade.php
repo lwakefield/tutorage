@@ -31,8 +31,8 @@
                     <br>
                     <ul class="list-group">
                         @foreach ($tutors as $tutor)
-                            <li class="list-group-item"
-                                >{{ $tutor->name }}
+                            <li class="list-group-item">
+                                {{ $tutor->name }} (${{ $tutor->price }} p/h)
                                 <span style="position:absolute; right:10px;top:3px;">
                                     <span class="label label-primary">Rating: {{ $tutor->rating }}</span>
                                     <a href="/up-rating?tutor_id={{$tutor->id}}"><button class="btn btn-success"><img style="width:20px;height:auto;" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png"></button></a>

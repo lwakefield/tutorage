@@ -47,6 +47,7 @@ class UserController extends Controller
     {
         try {
             $tutor = $this->user_repo->retrieve(Input::get('tutor_id'));
+            dd($tutor);
             //get current rating
             $currentRating = $tutor->rating;
             //increment current rating

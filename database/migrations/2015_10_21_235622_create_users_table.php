@@ -12,10 +12,9 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function($table){
-        
-            $table->integer('rating')->default(0);
-        
+        Schema::table('users', function($table)
+        {
+            $table->float('price')->default(0);
         });
     }
 
