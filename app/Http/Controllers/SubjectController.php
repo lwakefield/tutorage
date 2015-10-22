@@ -48,7 +48,22 @@ class SubjectController extends Controller
     {
         $subject = $this->subject_repo->retrieve(Input::get('subject_id'));
         $tutors = $subject->tutors;
-        return redirect('/')->with(compact('tutors'));
+        
+        $maxPrice =  Input::get('max_price');
+        if($maxPrice == "no-limit"){
+            return redirect('/')->with(compact('tutors'));
+        }
+        else{
+            $maxPrice = floatval($maxPrice);
+            $i = 0;
+            foreach ($tutors as $tutor) {
+                if($tutor->price > $maxPrice){
+                    $tutors->forget($i);
+                }
+                $i++;
+            }
+            return redirect('/')->with(compact('tutors'));
+        }
         //return view('student-app')->with(compact('subjects', 'tutors'));
     }
 
