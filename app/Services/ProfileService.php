@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Services;
-
 use App\Conversation;
 use Auth;
-
 class ProfileService
 {
-
     public static function loadMyConversations()
     {
         $user = Auth::user();
@@ -31,5 +27,4 @@ class ProfileService
         return $conversations->values();
     }
     
-
 }

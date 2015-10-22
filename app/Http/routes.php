@@ -44,3 +44,8 @@ Route::post('/send-message', [
     'uses' => 'MessageController@postSendMessage',
     'middleware' => 'auth'
 ]);
+
+Route::post('/vote-on-user/', [
+    'uses' => 'VoteController@voteOnTutor',
+    'middleware' => 'student'
+]);

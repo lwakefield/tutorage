@@ -44,6 +44,17 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         return null;
     }
 
+    public function votes()
+    {
+        if ($this->hasRole('tutor')) {
+            return $this->hasMany('App\Vote', 'tutor_id');
+        }
+        else if ($this->hasRole('student')) {
+            return $this->hasMany('App\Vote', 'student_id');
+        }
+        return null;
+    }
+
     public function sent()
     {
         return $this->hasMany('App\Message', 'from_id');
