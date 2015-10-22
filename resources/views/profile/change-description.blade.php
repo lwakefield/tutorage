@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <textarea class="form-control" name="new_description" placeholder="New description"></textarea>
+                    <textarea class="form-control" name="new_description" placeholder="New description">{{$description}}</textarea>
                 </div>
             </div>
             <div class="modal-footer">

@@ -48,15 +48,15 @@
         <div>
             <h2>My Profile</h2>
             <ul class="list-group">                
-                <li class="list-group-item" data-toggle="modal" data-target=".change-name">Name: <b>{{ Auth::user()->name }}</b></li>
+                <li class="list-group-item" data-toggle="modal" data-target=".change-name">Name: <b>{{ Auth::user()->name }}</b><a style="float:right">edit</a></li>
                 <li class="list-group-item">Email Address: <b>{{ Auth::user()->email }}</b></li>
-                <li class="list-group-item" data-toggle="modal" data-target=".change-price">Price: <b>${{ Auth::user()->price }} p/h</b></li>
+                <li class="list-group-item" data-toggle="modal" data-target=".change-price">Price: <b>${{ Auth::user()->price }} p/h</b><a style="float:right">edit</a></li>
                 <li class="list-group-item">Current Rating: <b>{{ Auth::user()->rating }}</b></li>
-                <li class="list-group-item" data-toggle="modal" data-target=".change-description">Description: <b>{{ Auth::user()->description }}</b></li>
+                <li class="list-group-item" data-toggle="modal" data-target=".change-description">Description: <b>{{ Auth::user()->description }}</b><a style="float:right">edit</a></li>
             </ul>
             @include('profile.change-name')
             @include('profile.change-price')
-            @include('profile.change-description')
+            @include('profile.change-description', ['description' => Auth::user()->description])
         </div>
     </div>
     <div class="col-xs-6">
