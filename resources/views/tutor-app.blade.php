@@ -46,7 +46,7 @@
             </ul>
         </div>
         <div>
-            <h2><span class="label label-primary">My Rating: {{ Auth::user()->rating }}</span></h2>
+            <h2><span class="label label-primary">My Rating: {{ Auth::user()->score }}</span></h2>
         </div>
     </div>
     <div class="col-xs-6">
