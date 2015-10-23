@@ -36,10 +36,6 @@ Route::post('/add-subject', [
     'uses' => 'SubjectController@postAddSubject',
     'middleware' => 'tutor'
 ]);
-Route::get('/profile', [
-    'uses' => 'UserController@getProfile',
-    'middleware' => 'tutor'
-]);
 Route::post('/profile', [
     'uses' => 'UserController@postProfile',
     'middleware' => 'tutor'

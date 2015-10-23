@@ -46,12 +46,14 @@
                                         <div class="form-group">
                                             <a class="btn btn-info btn-xs"
                                                 data-toggle="modal" 
-                                                data-target=".send-message-to-{{ $tutor->id }}">Message</a>
+                                                data-target=".send-message-to-{{ $tutor->id }}">
+                                                <i class="glyphicon glyphicon-user"></i>
+                                            </a>
                                         </div>
                                     </form>
                                 </span>
                             </li>
-                            @include('message.send', ['to_user' => $tutor->id])
+                            @include('user.profile', ['user' => $tutor])
                         @endforeach
                     </ul>
                 @endif
