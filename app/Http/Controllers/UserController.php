@@ -78,4 +78,40 @@ class UserController extends Controller
         }
 
     }
+
+    public function changeName()
+    {
+        try {
+            $tutor = $this->user_repo->retrieve(Auth::user()->id);
+            $tutor->name = Input::get('new_name');
+            $tutor->save();
+            return back();
+        } catch (ValidationException $e) {
+            return back()->withInput()->with('errors', $e->errors);
+        }
+    }
+        public function changePrice()
+    {
+        try {
+            $tutor = $this->user_repo->retrieve(Auth::user()->id);
+            $newPrice = floatval(Input::get('new_price'));
+            $tutor->price = $newPrice;
+            $tutor->save();
+            return back();
+        } catch (ValidationException $e) {
+            return back()->withInput()->with('errors', $e->errors);
+        }
+    }
+        public function changeDescription()
+    {
+        try {
+            $tutor = $this->user_repo->retrieve(Auth::user()->id);
+            $tutor->description = Input::get('new_description');
+            $tutor->save();
+            return back();
+        } catch (ValidationException $e) {
+            return back()->withInput()->with('errors', $e->errors);
+        }
+    }
+
 }
