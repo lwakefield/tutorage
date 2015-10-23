@@ -11,7 +11,7 @@ class Subject extends BaseModel
         'name' => 'required',
     ];
 
-    protected function tutors()
+    public function tutors()
     {
         return $this->belongsToMany('App\User', 'tutor_subjects');
     }

@@ -47,9 +47,12 @@ class SubjectController extends Controller
     public function postFindTutors()
     {
         $subject = $this->subject_repo->retrieve(Input::get('subject_id'));
-        $tutors = $subject->tutors;
+        $q = $subject->tutors();
+        if (!empty(Input::get('max-rate'))) {
+            $q->where('rate', '<=', Input::get('max-rate'))->get();
+        }
+        $tutors = $q->get();
         return redirect('/')->with(compact('tutors'));
-        //return view('student-app')->with(compact('subjects', 'tutors'));
     }
 
 }

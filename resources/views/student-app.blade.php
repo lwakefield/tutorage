@@ -14,18 +14,19 @@
                 <h3 class="text-center">Find Tutors</h3>
             </div>
             <div class="panel-body">
-                <form class="find-tutors-form form-inline" action="find-tutors" method="post">
+                <form class="find-tutors-form clearfix" action="find-tutors" method="post">
                     {!! csrf_field() !!}
                     <div class="form-group">
-                        <select class="form-control" name="subject_id">
+                        <select class="form-control col-md-12" name="subject_id">
                         @foreach ($subjects as $subject)
                             <option value="{{ $subject->id }}">{{ $subject->full_name }}</option>
                         @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <button class="form-control btn btn-primary" type="submit">Find Tutors</button>
+                        <input class="form-control col-md-8" type="number" name="max-rate" placeholder="Max $rate / hour">
                     </div>
+                    <button class="form-control btn btn-primary" type="submit">Find Tutors</button>
                 </form>
                 @if (isset($tutors))
                     <br>
